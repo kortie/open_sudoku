@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.sudoku.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_difficulty_selection"
+            app:destination="@id/navigation_difficulty_selection" />
+    </fragment>
+    
+    <fragment
+        android:id="@+id/navigation_difficulty_selection"
+        android:name="com.example.sudoku.ui.home.DifficultySelectionFragment"
+        android:label="Select Difficulty"
+        tools:layout="@layout/fragment_difficulty_selection">
+        <action
+            android:id="@+id/action_navigation_difficulty_selection_to_navigation_game"
+            app:destination="@id/navigation_game" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_game"
+        android:name="com.example.sudoku.sudoku.SudokuGameFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_sudoku_game">
+        <argument
+            android:name="difficulty"
+            app:argType="com.example.sudoku.sudoku.model.DifficultyLevel"
+            android:defaultValue="BEGINNER" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.sudoku.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+</navigation>
