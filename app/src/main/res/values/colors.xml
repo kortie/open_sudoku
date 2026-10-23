@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Cute Pastel Theme -->
+    <color name="primary">#FF8FAB</color>
+    <color name="primary_dark">#E5738F</color>
+    <color name="primary_light">#FFD6E2</color>
+    <color name="accent_gold">#FFD36E</color>
+    <color name="accent_gold_dark">#E8B84A</color>
+
+    <!-- Pastel candy colors (main / shadow) -->
+    <color name="candy_pink">#FF9EB7</color>
+    <color name="candy_pink_dark">#E87D9A</color>
+    <color name="candy_mint">#A8E6CF</color>
+    <color name="candy_mint_dark">#7CCBAE</color>
+    <color name="candy_yellow">#FFE08A</color>
+    <color name="candy_yellow_dark">#E8C25E</color>
+    <color name="candy_peach">#FFC3A0</color>
+    <color name="candy_peach_dark">#EDA07A</color>
+    <color name="candy_lavender">#CDB8FF</color>
+    <color name="candy_lavender_dark">#A891E6</color>
+    <color name="candy_white">#FFFFFF</color>
+    <color name="candy_white_dark">#F4CAD7</color>
+
+    <!-- Backgrounds -->
+    <color name="bg_primary">#FFF5F8</color>
+    <color name="bg_secondary">#FFFFFF</color>
+    <color name="bg_tertiary">#FFEAF1</color>
+    <color name="bg_surface">#FFFFFF</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#5B4B5E</color>
+    <color name="text_secondary">#9C8A9E</color>
+    <color name="text_tertiary">#C9B9CB</color>
+
+    <!-- Game Board Colors -->
+    <color name="board_light">#FFFFFF</color>
+    <color name="board_dark">#FFF0F5</color>
+    <color name="board_line_thin">#F6D5E0</color>
+    <color name="board_line_thick">#F09AB6</color>
+    <color name="cell_fixed">#FFF0F5</color>
+    <color name="cell_selected">#FFD0E0</color>
+    <color name="cell_highlight">#FFF1C9</color>
+    <color name="cell_conflict">#FFD2CC</color>
+    <color name="digit_fixed">#5B4B5E</color>
+    <color name="digit_user">#F2709A</color>
+    <color name="digit_note">#B9A5BC</color>
+
+    <!-- Status Colors -->
+    <color name="success_green">#7CCBAE</color>
+    <color name="error_red">#FF8A80</color>
+    <color name="warning_orange">#FFC3A0</color>
+    <color name="info_blue">#9CC9FF</color>
+
+    <!-- Borders & Dividers -->
+    <color name="border_light">#F6D5E0</color>
+    <color name="border_dark">#F09AB6</color>
+    <color name="divider">#F6D5E0</color>
+
+    <!-- Default -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

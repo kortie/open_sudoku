@@ -169,16 +169,8 @@ class SudokuGameFragment : Fragment() {
         }
         
         viewModel.isNoteMode.observe(viewLifecycleOwner) { isNoteMode ->
-            // Update note button appearance based on note mode state
-            if (isNoteMode) {
-                binding.buttonNote.isSelected = true
-                binding.buttonNote.setBackgroundColor(
-                    requireContext().getColor(android.R.color.holo_blue_light)
-                )
-            } else {
-                binding.buttonNote.isSelected = false
-                binding.buttonNote.background = resources.getDrawable(R.drawable.improved_button_background, null)
-            }
+            // Note button's background selector shows the active state
+            binding.buttonNote.isSelected = isNoteMode
         }
     }
     

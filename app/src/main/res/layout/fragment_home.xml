@@ -5,66 +5,89 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center"
+    android:padding="20dp"
+    android:background="@color/bg_primary"
     tools:context=".ui.home.HomeFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sudoku Game"
-        android:textAlignment="center"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="48dp"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="🐰 🍓 🐥"
+        android:textSize="36sp" />
 
-    <Button
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Sudoku"
+        android:textAppearance="@style/TextAppearance.Headline" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="Let's solve a cute puzzle together! ✨"
+        android:textAppearance="@style/TextAppearance.Body" />
+
+    <TextView
         android:id="@+id/button_new_game"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="New Game"
-        android:textSize="18sp"
-        android:layout_marginBottom="32dp"
-        android:padding="16dp" />
+        style="@style/CuteButton"
+        android:layout_marginBottom="24dp"
+        android:text="🎀  New Game  🎀"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="How to Play:"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/cute_card"
+        android:orientation="vertical"
+        android:padding="18dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="• Fill the grid so that every row, column, and 3x3 box contains the digits 1-9 without repetition.\n• Use the number buttons to fill in cells.\n• Tap 'Hint' if you need help.\n• Try to solve the puzzle as quickly as possible!"
-        android:textSize="16sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="🌷 How to Play"
+            android:textAppearance="@style/TextAppearance.Title" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="♡ Fill every row, column, and 3×3 box with 1–9, no repeats.\n♡ Tap a cell, then tap a number button.\n♡ Use Note to jot down little guesses.\n♡ Solve it as fast as you can!"
+            android:textAppearance="@style/TextAppearance.Body" />
+    </LinearLayout>
 
     <!-- Game History Section -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Recent Games:"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="8dp" />
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginBottom="16dp">
+        android:background="@drawable/cute_card"
+        android:orientation="vertical"
+        android:padding="18dp">
 
-        <LinearLayout
-            android:id="@+id/history_container"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp"
-            android:background="@android:color/background_light" />
-    </ScrollView>
+            android:layout_marginBottom="8dp"
+            android:text="🏆 Recent Games"
+            android:textAppearance="@style/TextAppearance.Title" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/history_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+    </LinearLayout>
 
 </LinearLayout>

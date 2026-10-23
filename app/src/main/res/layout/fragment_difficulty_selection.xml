@@ -4,54 +4,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="20dp"
     android:gravity="center"
+    android:background="@color/bg_primary"
     tools:context=".ui.home.DifficultySelectionFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Select Difficulty"
-        android:textAlignment="center"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="48dp"
-        android:layout_marginTop="16dp" />
+        android:gravity="center"
+        android:text="🐣"
+        android:textSize="44sp" />
 
-    <Button
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Pick your level!"
+        android:textAppearance="@style/TextAppearance.Headline" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:gravity="center"
+        android:text="How brave are you feeling today?"
+        android:textAppearance="@style/TextAppearance.Body" />
+
+    <TextView
         android:id="@+id/button_easy"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Easy"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp"
-        android:padding="16dp" />
+        style="@style/CuteButton"
+        android:background="@drawable/cute_button_mint"
+        android:text="🌱  Easy" />
 
-    <Button
+    <TextView
         android:id="@+id/button_medium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Medium"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp"
-        android:padding="16dp" />
+        style="@style/CuteButton"
+        android:background="@drawable/cute_button_yellow"
+        android:text="🌼  Medium" />
 
-    <Button
+    <TextView
         android:id="@+id/button_hard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hard"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp"
-        android:padding="16dp" />
+        style="@style/CuteButton"
+        android:background="@drawable/cute_button_peach"
+        android:text="🔥  Hard" />
 
-    <Button
+    <TextView
         android:id="@+id/button_hacker"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hacker"
-        android:textSize="18sp"
-        android:layout_marginBottom="32dp"
-        android:padding="16dp" />
+        style="@style/CuteButton"
+        android:background="@drawable/cute_button_lavender"
+        android:text="👾  Hacker" />
 
 </LinearLayout>

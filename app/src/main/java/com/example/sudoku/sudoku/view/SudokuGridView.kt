@@ -2,12 +2,14 @@ package com.example.sudoku.sudoku.view
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.Path
 import android.graphics.Rect
+import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import com.example.sudoku.R
 import com.example.sudoku.sudoku.model.SudokuBoard
 import kotlin.math.min
 
@@ -20,17 +22,21 @@ class SudokuGridView : View {
         style = Paint.Style.STROKE
         strokeWidth = 2f
         isAntiAlias = true
+        color = context.getColor(R.color.board_line_thin)
     }
     
     private val thickGridPaint = Paint().apply {
         style = Paint.Style.STROKE
         strokeWidth = 6f
         isAntiAlias = true
+        strokeCap = Paint.Cap.ROUND
+        color = context.getColor(R.color.board_line_thick)
     }
     
     private val textPaint = Paint().apply {
         textSize = 48f
         isAntiAlias = true
+        isFakeBoldText = true
         textAlign = Paint.Align.CENTER
     }
     
@@ -38,21 +44,32 @@ class SudokuGridView : View {
         textSize = 24f
         isAntiAlias = true
         textAlign = Paint.Align.CENTER
+        color = context.getColor(R.color.digit_note)
+    }
+
+    private val boardPaint = Paint().apply {
+        style = Paint.Style.FILL
+        color = context.getColor(R.color.board_light)
     }
     
     private val fixedCellPaint = Paint().apply {
         style = Paint.Style.FILL
-        color = Color.parseColor("#E0E0E0")
+        color = context.getColor(R.color.cell_fixed)
     }
     
     private val selectedCellPaint = Paint().apply {
         style = Paint.Style.FILL
-        color = Color.parseColor("#BBDEFB")
+        color = context.getColor(R.color.cell_selected)
+    }
+
+    private val sameValueCellPaint = Paint().apply {
+        style = Paint.Style.FILL
+        color = context.getColor(R.color.cell_highlight)
     }
     
     private val conflictingCellPaint = Paint().apply {
         style = Paint.Style.FILL
-        color = Color.parseColor("#FFCDD2")
+        color = context.getColor(R.color.cell_conflict)
     }
     
     // Game data
@@ -65,6 +82,11 @@ class SudokuGridView : View {
     // Cell dimensions
     private var cellSize = 0f
     private val textBounds = Rect()
+
+    // Rounded board outline
+    private val boardRect = RectF()
+    private val boardClip = Path()
+    private val cornerRadius = 18f * resources.displayMetrics.density
     
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -116,6 +138,12 @@ class SudokuGridView : View {
         val size = min(w, h)
         cellSize = size / 9f
         textPaint.textSize = cellSize * 0.6f
+        noteTextPaint.textSize = cellSize * 0.28f
+
+        val inset = thickGridPaint.strokeWidth / 2
+        boardRect.set(inset, inset, size - inset, size - inset)
+        boardClip.reset()
+        boardClip.addRoundRect(boardRect, cornerRadius, cornerRadius, Path.Direction.CW)
     }
     
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -160,28 +188,36 @@ class SudokuGridView : View {
         
         if (board == null) return
         
+        canvas.save()
+        canvas.clipPath(boardClip)
+        canvas.drawRect(boardRect, boardPaint)
         drawCells(canvas)
         drawGrid(canvas)
+        canvas.restore()
+
+        // Rounded outer border on top
+        canvas.drawRoundRect(boardRect, cornerRadius, cornerRadius, thickGridPaint)
     }
     
     /**
      * Draws the Sudoku grid lines.
      */
     private fun drawGrid(canvas: Canvas) {
-        // Draw thin grid lines
-        gridPaint.color = Color.GRAY
-        for (i in 0..9) {
+        val size = cellSize * 9
+
+        // Draw thin grid lines (inner cell borders only; outer border is rounded)
+        for (i in 1..8) {
+            if (i % 3 == 0) continue
             val start = i * cellSize
-            canvas.drawLine(0f, start, width.toFloat(), start, gridPaint)
-            canvas.drawLine(start, 0f, start, height.toFloat(), gridPaint)
+            canvas.drawLine(0f, start, size, start, gridPaint)
+            canvas.drawLine(start, 0f, start, size, gridPaint)
         }
         
         // Draw thick grid lines for 3x3 boxes
-        thickGridPaint.color = Color.BLACK
-        for (i in 0..3) {
+        for (i in 1..2) {
             val start = i * 3 * cellSize
-            canvas.drawLine(0f, start, width.toFloat(), start, thickGridPaint)
-            canvas.drawLine(start, 0f, start, height.toFloat(), thickGridPaint)
+            canvas.drawLine(0f, start, size, start, thickGridPaint)
+            canvas.drawLine(start, 0f, start, size, thickGridPaint)
         }
     }
     
@@ -235,8 +271,6 @@ class SudokuGridView : View {
         val noteCellWidth = cellSize / 3
         val noteCellHeight = cellSize / 3
         
-        noteTextPaint.color = Color.GRAY
-        
         for (note in notes) {
             // Calculate position for this note (1-9 grid)
             val noteRow = (note - 1) / 3  // 0, 1, 2
@@ -284,7 +318,7 @@ class SudokuGridView : View {
         
         // Draw same value cell background
         if (sameValueCells.contains(Pair(row, col))) {
-            canvas.drawRect(left, top, right, bottom, selectedCellPaint)
+            canvas.drawRect(left, top, right, bottom, sameValueCellPaint)
             return
         }
         
@@ -319,9 +353,9 @@ class SudokuGridView : View {
         
         // Set text color based on whether it's a fixed cell
         textPaint.color = if (board.isFixedCell(row, col)) {
-            Color.BLACK
+            context.getColor(R.color.digit_fixed)
         } else {
-            Color.BLUE
+            context.getColor(R.color.digit_user)
         }
         
         // Get text bounds to center it properly

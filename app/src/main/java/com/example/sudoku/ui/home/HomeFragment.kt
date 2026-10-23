@@ -53,9 +53,11 @@ class HomeFragment : Fragment() {
         
         if (historyList.isEmpty()) {
             val emptyView = TextView(requireContext()).apply {
-                text = "No game history yet. Complete a game to see your scores!"
-                textSize = 16f
-                setPadding(16, 16, 16, 16)
+                text = "No games yet 🐾\nFinish a puzzle to see your scores here!"
+                textSize = 15f
+                setTextColor(requireContext().getColor(R.color.text_secondary))
+                gravity = android.view.Gravity.CENTER
+                setPadding(16, 32, 16, 32)
             }
             binding.historyContainer.addView(emptyView)
         } else {
@@ -103,9 +105,10 @@ class HomeFragment : Fragment() {
         val cell = TextView(requireContext()).apply {
             this.text = text
             textSize = 12f
-            setPadding(4, 8, 4, 8)
-            setTextColor(resources.getColor(android.R.color.darker_gray, null))
-            setBackgroundResource(android.R.color.background_light)
+            setPadding(4, 12, 4, 12)
+            setTypeface(typeface, android.graphics.Typeface.BOLD)
+            setTextColor(requireContext().getColor(R.color.primary_dark))
+            setBackgroundResource(R.color.bg_tertiary)
             layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, weight)
             gravity = android.view.Gravity.CENTER
         }
@@ -116,8 +119,8 @@ class HomeFragment : Fragment() {
         val cell = TextView(requireContext()).apply {
             this.text = text
             textSize = 14f
-            setPadding(4, 8, 4, 8)
-            setBackgroundResource(android.R.color.background_light)
+            setPadding(4, 12, 4, 12)
+            setTextColor(requireContext().getColor(R.color.text_primary))
             layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, weight)
             gravity = android.view.Gravity.CENTER
         }
