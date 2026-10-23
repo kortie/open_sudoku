@@ -35,10 +35,4 @@
             app:argType="com.example.sudoku.sudoku.model.DifficultyLevel"
             android:defaultValue="BEGINNER" />
     </fragment>
-
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.sudoku.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
 </navigation>

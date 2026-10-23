@@ -22,14 +22,30 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-            )
-        )
+        // Only Home is top level, so Difficulty/Game screens show the Up arrow.
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.navigation_home))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        // Tabs jump within the single back stack (Home -> Difficulty -> Game):
+        // pop back to the tab's screen if it's already in the stack, otherwise open it.
+        // Replaces NavigationUI's save/restore-state tab switching, which left the
+        // Home tab unresponsive from the game screen.
+        navView.setOnItemSelectedListener { item ->
+            if (!navController.popBackStack(item.itemId, false)) {
+                navController.navigate(item.itemId)
+            }
+            true
+        }
+        // Tapping the already-selected tab also returns to that tab's root screen
+        // (e.g. Play Sudoku while in a game goes back to difficulty selection).
+        navView.setOnItemReselectedListener { item ->
+            navController.popBackStack(item.itemId, false)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return findNavController(R.id.nav_host_fragment_activity_main).navigateUp() ||
+            super.onSupportNavigateUp()
     }
 }

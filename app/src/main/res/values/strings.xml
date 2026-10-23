@@ -2,5 +2,4 @@
     <string name="app_name">Sudoku</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Play Sudoku</string>
-    <string name="title_notifications">Notifications</string>
 </resources>
