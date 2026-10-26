@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.sudoku.ui.home.HomeFragment"
+        android:name="com.juanstudio.sudoku.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
         <action
@@ -17,7 +17,7 @@
     
     <fragment
         android:id="@+id/navigation_difficulty_selection"
-        android:name="com.example.sudoku.ui.home.DifficultySelectionFragment"
+        android:name="com.juanstudio.sudoku.ui.home.DifficultySelectionFragment"
         android:label="Select Difficulty"
         tools:layout="@layout/fragment_difficulty_selection">
         <action
@@ -27,12 +27,12 @@
 
     <fragment
         android:id="@+id/navigation_game"
-        android:name="com.example.sudoku.sudoku.SudokuGameFragment"
+        android:name="com.juanstudio.sudoku.sudoku.SudokuGameFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_sudoku_game">
         <argument
             android:name="difficulty"
-            app:argType="com.example.sudoku.sudoku.model.DifficultyLevel"
+            app:argType="com.juanstudio.sudoku.sudoku.model.DifficultyLevel"
             android:defaultValue="BEGINNER" />
     </fragment>
 </navigation>

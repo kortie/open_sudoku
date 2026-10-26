@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.sudoku"
+    namespace = "com.juanstudio.sudoku"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.sudoku"
+        applicationId = "com.juanstudio.sudoku"
         minSdk = 36
         targetSdk = 36
         versionCode = 1

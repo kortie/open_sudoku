@@ -49,7 +49,7 @@
     </LinearLayout>
 
     <!-- Sudoku grid -->
-    <com.example.sudoku.sudoku.view.SudokuGridView
+    <com.juanstudio.sudoku.sudoku.view.SudokuGridView
         android:id="@+id/sudoku_grid"
         android:layout_width="match_parent"
         android:layout_height="0dp"
