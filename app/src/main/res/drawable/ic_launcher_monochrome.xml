@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Themed-icon silhouette: outlines and face of the sudoku bunny -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Scaled toward the center so launchers with tight masks (e.g. One UI) keep the ears -->
+    <group android:pivotX="54" android:pivotY="54" android:scaleX="0.78" android:scaleY="0.78">
+        <group android:pivotX="43" android:pivotY="44" android:rotation="-14">
+            <path android:strokeColor="#000000" android:strokeWidth="2.5"
+                android:pathData="M37,34a6,13 0,1 0,12 0a6,13 0,1 0,-12 0z" />
+        </group>
+        <group android:pivotX="65" android:pivotY="44" android:rotation="14">
+            <path android:strokeColor="#000000" android:strokeWidth="2.5"
+                android:pathData="M59,34a6,13 0,1 0,12 0a6,13 0,1 0,-12 0z" />
+        </group>
+        <path android:strokeColor="#000000" android:strokeWidth="2.5"
+            android:pathData="M42,40H66A12,12 0,0 1,78 52V74A12,12 0,0 1,66 86H42A12,12 0,0 1,30 74V52A12,12 0,0 1,42 40Z" />
+        <path android:fillColor="#000000"
+            android:pathData="M42,62a3.2,3.2 0,1 0,6.4 0a3.2,3.2 0,1 0,-6.4 0zM59.6,62a3.2,3.2 0,1 0,6.4 0a3.2,3.2 0,1 0,-6.4 0z" />
+        <path android:strokeColor="#000000" android:strokeWidth="1.6"
+            android:strokeLineCap="round" android:strokeLineJoin="round"
+            android:pathData="M50,67.2q2,2.8 4,0q2,2.8 4,0" />
+    </group>
+</vector>
