@@ -17,8 +17,24 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // Release key lives outside the repo; its path and passwords come from
+    // ~/.gradle/gradle.properties (SUDOKU_RELEASE_*). Without them the release
+    // build is left unsigned.
+    val releaseStoreFile = providers.gradleProperty("SUDOKU_RELEASE_STORE_FILE").orNull
+    signingConfigs {
+        if (releaseStoreFile != null) {
+            create("release") {
+                storeFile = file(releaseStoreFile)
+                storePassword = providers.gradleProperty("SUDOKU_RELEASE_STORE_PASSWORD").get()
+                keyAlias = providers.gradleProperty("SUDOKU_RELEASE_KEY_ALIAS").get()
+                keyPassword = providers.gradleProperty("SUDOKU_RELEASE_KEY_PASSWORD").get()
+            }
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig = signingConfigs.findByName("release")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
