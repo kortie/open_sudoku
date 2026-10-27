@@ -22,8 +22,10 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Only Home is top level, so Difficulty/Game screens show the Up arrow.
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.navigation_home))
+        // Home and About are top level; Difficulty/Game screens show the Up arrow.
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(R.id.navigation_home, R.id.navigation_about)
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 

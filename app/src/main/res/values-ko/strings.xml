@@ -1,0 +1,22 @@
+<resources>
+    <string name="title_about">정보</string>
+    <string name="about_version">버전 %1$s</string>
+    <string name="about_developer_label">개발자</string>
+    <string name="about_support_title">개발자 응원하기</string>
+    <string name="about_support_body">게임이 마음에 드셨다면 커피 한 잔으로 응원해 주세요! ✨</string>
+    <string name="donate_coffee_small">☕  커피 한 잔</string>
+    <string name="donate_coffee_medium">☕☕  커피 두 잔</string>
+    <string name="donate_coffee_large">🍰  커피와 케이크</string>
+    <string name="donation_loading">Google Play에 연결하는 중…</string>
+    <string name="donation_unavailable">지금은 후원을 이용할 수 없습니다. (Google Play 필요)</string>
+    <string name="donation_note">결제는 Google Play를 통해 안전하게 처리됩니다.</string>
+    <string name="donation_thanks_title">고마워요! 🐰💕</string>
+    <string name="donation_thanks_body">보내주신 커피 덕분에 토끼가 힘이 나요. 응원해 주셔서 정말 감사합니다!</string>
+    <string name="donation_pending">결제가 대기 중입니다. 승인되면 완료됩니다.</string>
+    <string name="donation_failed">결제를 완료하지 못했습니다. 다시 시도해 주세요.</string>
+    <string name="about_licenses_title">오픈소스 라이선스</string>
+    <string name="about_licenses_body">이 앱은 Apache License 2.0에 따라 배포되는 다음 오픈소스 소프트웨어를 사용합니다:</string>
+    <string name="about_google_sdk_notice">Google Play 결제 라이브러리와 Google Play 서비스는 Android 소프트웨어 개발 키트 라이선스에 따라 Google이 제공합니다.</string>
+    <string name="about_view_license">📄  Apache License 2.0 전문 보기</string>
+    <string name="close">닫기</string>
+</resources>

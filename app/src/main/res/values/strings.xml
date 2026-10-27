@@ -2,4 +2,29 @@
     <string name="app_name">Sudoku</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Play Sudoku</string>
+    <string name="title_about">About</string>
+
+    <!-- About -->
+    <string name="about_version">Version %1$s</string>
+    <string name="about_developer_label">Developer</string>
+    <string name="about_developer" translatable="false">juanstudio</string>
+    <string name="about_copyright" translatable="false">© 2026 juanstudio</string>
+    <string name="about_support_title">Support the developer</string>
+    <string name="about_support_body">If you enjoy the game, a coffee keeps the bunny going! ✨</string>
+    <string name="donate_coffee_small">☕  A cup of coffee</string>
+    <string name="donate_coffee_medium">☕☕  Two coffees</string>
+    <string name="donate_coffee_large">🍰  Coffee &amp; cake</string>
+    <string name="donate_with_price">%1$s · %2$s</string>
+    <string name="donation_loading">Connecting to Google Play…</string>
+    <string name="donation_unavailable">Donations aren\'t available right now. (Requires Google Play)</string>
+    <string name="donation_note">Payments are handled securely by Google Play.</string>
+    <string name="donation_thanks_title">Thank you! 🐰💕</string>
+    <string name="donation_thanks_body">Your coffee made the bunny\'s day. Thank you so much for your support!</string>
+    <string name="donation_pending">Your payment is pending. It will be completed once approved.</string>
+    <string name="donation_failed">The payment couldn\'t be completed. Please try again.</string>
+    <string name="about_licenses_title">Open source licenses</string>
+    <string name="about_licenses_body">This app uses the following open source software, licensed under the Apache License, Version 2.0:</string>
+    <string name="about_google_sdk_notice">Google Play Billing Library and Google Play services are provided by Google under the Android Software Development Kit License.</string>
+    <string name="about_view_license">📄  View Apache License 2.0</string>
+    <string name="close">Close</string>
 </resources>
